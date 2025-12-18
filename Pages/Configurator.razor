@@ -1,0 +1,102 @@
+@page "/"
+@using TcTeardrops.Configurator.Components.StepComponents
+@using TcTeardrops.Configurator.Services
+@inject StateService State
+@inject NavigationManager Nav
+
+<div class="configurator-layout">
+    <div class="main-content">
+        <div class="steps-progress">
+             @for (int i = 0; i < Steps.Count; i++)
+             {
+                 var stepIndex = i; // capture loop variable
+                 <div class="step-indicator @(CurrentStepIndex == stepIndex ? "active" : "") @(CurrentStepIndex > stepIndex ? "completed" : "")" 
+                      @onclick="() => GoToStep(stepIndex)">
+                     @(stepIndex + 1). @Steps[stepIndex]
+                 </div>
+             }
+        </div>
+
+        <div class="step-content">
+            @switch (CurrentStepIndex)
+            {
+                case 0: <ModelSelectionStep /> break;
+                case 1: <ExteriorStep /> break;
+                case 2: <InteriorStep /> break;
+                case 3: <KitchenStep /> break;
+                case 4: <AccessoriesStep /> break;
+                case 5: <ReviewStep /> break;
+            }
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="btn-secondary" @onclick="PrevStep" disabled="@(CurrentStepIndex == 0)">Back</button>
+            
+            @if (CurrentStepIndex < Steps.Count - 1)
+            {
+                <button class="btn-primary" @onclick="NextStep">Next Step</button>
+            }
+        </div>
+    </div>
+
+    <div class="summary-sidebar">
+        <h3>Your Build</h3>
+        <div class="summary-content">
+            <div class="summary-row base-price">
+                <span>Base Model</span>
+                <span>@State.CurrentQuote.BasePrice.ToString("C")</span>
+            </div>
+            <hr />
+            @foreach (var option in State.CurrentQuote.SelectedOptions)
+            {
+                <div class="summary-row option-item">
+                     <span class="opt-name">@option.Name</span>
+                     <span class="opt-price">@option.Price.ToString("C")</span>
+                </div>
+            }
+            <div class="summary-footer">
+                <div class="summary-row total-price">
+                    <span>Est. Total</span>
+                    <span>@State.CurrentQuote.TotalPrice.ToString("C")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private int CurrentStepIndex = 0;
+    private List<string> Steps = new() { "Model", "Exterior", "Interior", "Kitchen", "Accessories", "Review" };
+
+    protected override void OnInitialized()
+    {
+        State.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        State.OnChange -= StateHasChanged;
+    }
+
+    private void NextStep()
+    {
+        if (CurrentStepIndex < Steps.Count - 1)
+        {
+            CurrentStepIndex++;
+        }
+    }
+
+    private void PrevStep()
+    {
+        if (CurrentStepIndex > 0)
+        {
+            CurrentStepIndex--;
+        }
+    }
+    
+    private void GoToStep(int index)
+    {
+        // Optional: validation before jumping
+        CurrentStepIndex = index;
+    }
+}

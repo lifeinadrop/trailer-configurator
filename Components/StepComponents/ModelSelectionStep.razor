@@ -1,0 +1,43 @@
+@using TcTeardrops.Configurator.Models
+@using TcTeardrops.Configurator.Services
+@inject StateService State
+
+<div class="step-container">
+    <h3>Select Your Model</h3>
+    <p class="step-description">Choose the base for your adventure.</p>
+
+    <div class="options-grid">
+        @foreach (var model in State.AvailableModels)
+        {
+            <div class="option-card @(State.CurrentQuote.SelectedModel?.Id == model.Id ? "selected" : "")" @onclick="() => State.SelectModel(model)">
+                <div class="option-image-placeholder">
+                    @if (!string.IsNullOrEmpty(model.ImageUrl))
+                    {
+                        <img src="@model.ImageUrl" alt="@model.Name" style="width: 100%; height: 100%; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <span>IMG</span>
+                    }
+                </div>
+                <div class="option-details">
+                    <h4>@model.Name</h4>
+                    <p>@model.Description</p>
+                    <span class="price">From @model.BasePrice.ToString("C")</span>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        State.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        State.OnChange -= StateHasChanged;
+    }
+}

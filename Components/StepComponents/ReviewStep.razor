@@ -1,0 +1,86 @@
+@using TcTeardrops.Configurator.Models
+@using TcTeardrops.Configurator.Services
+@inject StateService State
+
+<div class="step-container review-page">
+    <h3>Review Your Build</h3>
+    <p class="step-description">Verify your configuration before submitting.</p>
+
+    <div class="review-card">
+        <!-- Header / Model Info -->
+        <div class="review-header">
+            <div class="model-info">
+                <h4>@State.CurrentQuote.SelectedModel?.Name</h4>
+                <span class="base-price">Base Price: @State.CurrentQuote.BasePrice.ToString("C")</span>
+            </div>
+            <div class="header-image">
+                 @if (!string.IsNullOrEmpty(State.CurrentQuote.SelectedModel?.ImageUrl))
+                 {
+                     <img src="@State.CurrentQuote.SelectedModel?.ImageUrl" alt="@State.CurrentQuote.SelectedModel?.Name" />
+                 }
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Selected Options Grouped -->
+        <div class="review-details">
+            @foreach (var categoryGroup in State.CurrentQuote.SelectedOptions.GroupBy(o => o.Category))
+            {
+                <div class="review-group">
+                    <h5>@categoryGroup.Key</h5>
+                    <ul>
+                        @foreach (var option in categoryGroup)
+                        {
+                            <li>
+                                <span class="opt-name">@option.Name</span>
+                                <span class="opt-price">@option.Price.ToString("C")</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            
+            @if (!State.CurrentQuote.SelectedOptions.Any())
+            {
+                <div class="empty-state">No additional options selected.</div>
+            }
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Total -->
+        <div class="review-total-section">
+            <span class="label">Estimated Total</span>
+            <span class="value">@State.CurrentQuote.TotalPrice.ToString("C")</span>
+        </div>
+    </div>
+
+    <div class="action-area">
+        <button class="btn-submit" @onclick="SubmitQuote">
+            <span class="icon">🚀</span> Submit Quote Request
+        </button>
+        <p class="disclaimer">
+            *This is an estimate. Final pricing may vary based on availability and taxes.
+            Submitting this request does not commit you to a purchase.
+        </p>
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        State.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        State.OnChange -= StateHasChanged;
+    }
+
+    private void SubmitQuote()
+    {
+        // TODO: Handle submission
+        Console.WriteLine("Quote Submitted!");
+    }
+}

@@ -1,0 +1,4 @@
+/home/sam/Projects/clients/tcteardrops/TrailerConfiguratorPrototype/TcTeardrops.Configurator/release/wwwroot/index.html
+/home/sam/Projects/clients/tcteardrops/TrailerConfiguratorPrototype/TcTeardrops.Configurator/release/TcTeardrops.Configurator.runtimeconfig.json
+/home/sam/Projects/clients/tcteardrops/TrailerConfiguratorPrototype/TcTeardrops.Configurator/release/dotnet.js
+/home/sam/Projects/clients/tcteardrops/TrailerConfiguratorPrototype/TcTeardrops.Configurator/release/web.config
