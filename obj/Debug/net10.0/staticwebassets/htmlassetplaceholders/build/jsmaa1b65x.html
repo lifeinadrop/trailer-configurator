@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TcTeardrops.Configurator</title>
     <base href="/" />
-    <link href="_framework/dotnet.qfnd081num.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-GlgUoUGq+8qZvFccxc8+JHKyp86I93QiQFC9O97+nsY=" />
+    <link href="_framework/dotnet.66atc4dp2u.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-Qvtq4z+r06KXSw8MDwDo8uoip6lq+bRnvaDIUXLh1LI=" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -15,8 +15,8 @@
   "imports": {
     "./_content/Microsoft.DotNet.HotReload.WebAssembly.Browser/Microsoft.DotNet.HotReload.WebAssembly.Browser.lib.module.js": "./_content/Microsoft.DotNet.HotReload.WebAssembly.Browser/Microsoft.DotNet.HotReload.WebAssembly.Browser.99zm1jdh75.lib.module.js",
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.66stpp682q.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.66atc4dp2u.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.cs8mcre4gh.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.qfnd081num.js",
     "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.0j6ezsi0n0.js",
     "./lib/bootstrap/dist/js/bootstrap.bundle.js": "./lib/bootstrap/dist/js/bootstrap.bundle.ev2cpk69u6.js",
     "./lib/bootstrap/dist/js/bootstrap.bundle.min.js": "./lib/bootstrap/dist/js/bootstrap.bundle.min.493y06b0oq.js",
@@ -31,10 +31,10 @@
     "./_content/Microsoft.DotNet.HotReload.WebAssembly.Browser/Microsoft.DotNet.HotReload.WebAssembly.Browser.lib.module.js": "sha256-A8e6zZwhOqf7lDQqbbCYcAUv4wGE9aQxOo4WyYxR//0=",
     "./_framework/blazor.webassembly.66stpp682q.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
     "./_framework/blazor.webassembly.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
-    "./_framework/dotnet.js": "sha256-GlgUoUGq+8qZvFccxc8+JHKyp86I93QiQFC9O97+nsY=",
+    "./_framework/dotnet.66atc4dp2u.js": "sha256-Qvtq4z+r06KXSw8MDwDo8uoip6lq+bRnvaDIUXLh1LI=",
+    "./_framework/dotnet.js": "sha256-Qvtq4z+r06KXSw8MDwDo8uoip6lq+bRnvaDIUXLh1LI=",
     "./_framework/dotnet.native.cs8mcre4gh.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
     "./_framework/dotnet.native.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
-    "./_framework/dotnet.qfnd081num.js": "sha256-GlgUoUGq+8qZvFccxc8+JHKyp86I93QiQFC9O97+nsY=",
     "./_framework/dotnet.runtime.0j6ezsi0n0.js": "sha256-jCsbbdXoVd1zzGc0fQT2sz4mKuv0ANdurPVGo5Sc2jg=",
     "./_framework/dotnet.runtime.js": "sha256-jCsbbdXoVd1zzGc0fQT2sz4mKuv0ANdurPVGo5Sc2jg=",
     "./lib/bootstrap/dist/js/bootstrap.bundle.ev2cpk69u6.js": "sha256-dj0h93N8Hk+qV2KXnr+PxGd2bHY4SjFlPOCfiOG0VvU=",
@@ -68,6 +68,15 @@
         <span class="dismiss">🗙</span>
     </div>
     <script src="_framework/blazor.webassembly.66stpp682q.js"></script>
+    <script>
+        window.scrollToTop = () => {
+            const main = document.querySelector('.app-main');
+            if (main) {
+                main.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 
 </html>

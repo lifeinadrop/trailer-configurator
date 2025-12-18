@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TcTeardrops.Configurator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+706d6fa686637f008dd76fdabec22b46925ee887")]
 [assembly: System.Reflection.AssemblyProductAttribute("TcTeardrops.Configurator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TcTeardrops.Configurator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

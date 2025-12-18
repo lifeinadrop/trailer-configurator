@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "TcTeardrops.Configurator",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-Q2LxIWMR3JqmAU35mRp7yrI+fx0IxcZpRkzlrAbUv4M=",
+    "hash": "sha256-UpJto6HvU/1fvJpnc2dI8jkRQ5lScGMPP6bg3r+UiFo=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.cs8mcre4gh.js"
@@ -1039,15 +1039,15 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "TcTeardrops.Configurator.wasm",
-        "name": "TcTeardrops.Configurator.m9mko6qvzb.wasm",
-        "integrity": "sha256-uv1lh4Qsl0EjsK/FSSOPZPqjvzPpgdayVAo6KRxRZdU="
+        "name": "TcTeardrops.Configurator.3xotfolrkv.wasm",
+        "integrity": "sha256-ZwICTzpIhSd24TniF8RyJXzbTEEk+ISXMc8IzD2UEdg="
       }
     ],
     "pdb": [
       {
         "virtualPath": "TcTeardrops.Configurator.pdb",
-        "name": "TcTeardrops.Configurator.v866hahxtz.pdb",
-        "integrity": "sha256-4THuEi/9Js+52uSvrnO9rAQPVlxJEh5xJ2PWLOhM654="
+        "name": "TcTeardrops.Configurator.rryy8rbqka.pdb",
+        "integrity": "sha256-eZfmoiuq0BzZSuMhcGZWutvN+vDqtKzj02LWcMvZ37M="
       }
     ],
     "libraryInitializers": [

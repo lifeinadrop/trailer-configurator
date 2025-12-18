@@ -68,6 +68,8 @@
 </div>
 
 @code {
+    [Inject] private NavigationManager Nav { get; set; } = default!;
+
     protected override void OnInitialized()
     {
         State.OnChange += StateHasChanged;
@@ -80,7 +82,8 @@
 
     private void SubmitQuote()
     {
-        // TODO: Handle submission
-        Console.WriteLine("Quote Submitted!");
+        // Simulate submission delay
+        // In a real app, this would post to an API
+        Nav.NavigateTo("quote-submitted");
     }
 }

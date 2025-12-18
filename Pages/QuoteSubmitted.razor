@@ -1,0 +1,39 @@
+@page "/quote-submitted"
+@using TcTeardrops.Configurator.Services
+@inject NavigationManager Nav
+@inject StateService State
+
+<div class="submission-container">
+    <div class="success-card">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+        </div>
+        
+        <h1>Quote Request Received!</h1>
+        <p class="subtitle">Thank you for building your dream TcTeardrop.</p>
+        
+        <div class="reference-box">
+            <span>Reference ID</span>
+            <strong>#TC-@DateTime.Now.ToString("yyyyMMdd")-@Random.Shared.Next(1000, 9999)</strong>
+        </div>
+
+        <div class="submission-details">
+            <p>We have received your configuration for the <strong>@State.CurrentQuote.SelectedModel?.Name</strong>.</p>
+            <p>One of our team members will review your build and contact you within 24-48 hours with availability and final details.</p>
+        </div>
+
+        <div class="actions">
+            <button class="btn-primary" @onclick="GoHome">Build Another</button>
+            <a href="https://www.tcteardrops.com" class="btn-secondary link-btn">Visit Website</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void GoHome()
+    {
+        Nav.NavigateTo("/");
+    }
+}

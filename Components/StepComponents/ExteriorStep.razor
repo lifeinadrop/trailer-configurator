@@ -8,28 +8,30 @@
 
     @foreach (var group in State.AvailableOptions.Where(o => o.Category == "Exterior").GroupBy(o => string.IsNullOrEmpty(o.Group) ? "General" : o.Group))
     {
-        <h4 class="option-group-title">@group.Key</h4>
-        <div class="options-grid">
-            @foreach (var option in group)
-            {
-                <div class="option-card @(State.CurrentQuote.HasOption(option.Id) ? "selected" : "")" @onclick="() => State.ToggleOption(option)">
-                    <div class="option-image-placeholder">
-                        @if (!string.IsNullOrEmpty(option.ImageUrl))
-                        {
-                            <img src="@option.ImageUrl" alt="@option.Name" style="width: 100%; height: 100%; object-fit: cover;" />
-                        }
-                        else
-                        {
-                            <span>IMG</span>
-                        }
+        <div class="category-section">
+            <h4 class="category-header">@group.Key</h4>
+            <div class="options-grid">
+                @foreach (var option in group)
+                {
+                    <div class="option-card @(State.CurrentQuote.HasOption(option.Id) ? "selected" : "")" @onclick="() => State.ToggleOption(option)">
+                        <div class="option-image-placeholder">
+                            @if (!string.IsNullOrEmpty(option.ImageUrl))
+                            {
+                                <img src="@option.ImageUrl" alt="@option.Name" style="width: 100%; height: 100%; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <span>IMG</span>
+                            }
+                        </div>
+                        <div class="option-details">
+                            <h4>@option.Name</h4>
+                            <p>@option.Description</p>
+                            <span class="price">@option.Price.ToString("C")</span>
+                        </div>
                     </div>
-                    <div class="option-details">
-                        <h4>@option.Name</h4>
-                        <p>@option.Description</p>
-                        <span class="price">@option.Price.ToString("C")</span>
-                    </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     }
 </div>
